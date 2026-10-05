@@ -18,3 +18,20 @@ Integrated the text information which is useful about AI-Agent system's mindset
 這五個問題，任何一個沒想清楚，都可能成為系統在 production 環境下的瓶頸。
 
 Reference: Harness Engineering - AI 工程師的第三個維度
+
+
+
+
+🧱 靜態字首架構的四大核心要素
+1. System Prompt（系統提示詞）
+	• 定義：設定 AI 的角色、語氣、行為準則與限制（例如：「你是一個資深的軟體架構師...」）。
+	• 靜態特性：在同一個應用程式中，這段規則通常是固定不變的。
+2. Tool Definition（工具定義）
+	• 定義：提供給模型的外部 API 規格或函數宣告（Function Calling），讓 AI 知道有哪些工具可用、需要什麼參數。
+	• 靜態特性：除非更新系統功能，否則工具的 JSON Schema 通常保持不變。
+3. Context（上下文背景）
+	• 定義：長篇的固定知識庫、法律條文、企業內部文件或產品規格。
+	• 靜態特性：這些是提供給 RAG（檢索增強生成）或多輪對話的基礎背景，在一段時間內是固定的。
+4. Engineering（工程優化）
+	• 定義：如何精心設計與排列上述內容的順序。
+	• 關鍵原則：必須將「完全不變的內容」排在最前面（即字首 Prefix），將「會變動的內容（如使用者最新的問題）」排在最後面。
